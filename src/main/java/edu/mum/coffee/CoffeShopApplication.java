@@ -9,5 +9,5 @@ public class CoffeShopApplication {
 	public static void main(String[] args) {
 		System.out.println("This is a test");
 		SpringApplication.run(CoffeShopApplication.class, args);
-	}  
+	}    
 }
