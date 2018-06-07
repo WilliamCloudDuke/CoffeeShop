@@ -12,11 +12,11 @@ import edu.mum.coffee.repository.ProductRepository;
 
 @Service
 @Transactional
-public class ProductService   {
-	
+public class ProductService {
+
 	@Autowired
 	private ProductRepository productRepository;
-		
+
 	public Product save(Product product) {
 		return productRepository.save(product);
 	}
@@ -26,26 +26,30 @@ public class ProductService   {
 	}
 
 	public Product getProduct(int productId) {
-		return  productRepository.findOne(productId);
+		return productRepository.findOne(productId);
 	}
 
 	public List<Product> getAllProduct() {
-		return  productRepository.findAll() ;
+		return productRepository.findAll();
 	}
-	
+
 	public List<Product> findByTextSearch(String criteria) {
 		if (!criteria.contains("%")) {
-			criteria = "%"+criteria+"%";
+			criteria = "%" + criteria + "%";
 		}
 		return productRepository.findByProductNameLikeOrDescriptionLikeAllIgnoreCase(criteria, criteria);
 	}
 
 	public List<Product> findByPrice(double minPrice, double maxPrice) {
-		return  productRepository.findByPriceBetween(minPrice, maxPrice);
+		return productRepository.findByPriceBetween(minPrice, maxPrice);
 	}
-	
+
 	public List<Product> findByProductType(ProductType productType) {
-		 return productRepository.findByProductType(productType);
+		return productRepository.findByProductType(productType);
 	}
-	
+
+	public void deleteById(int id) {
+		productRepository.deleteById(id);
+	}
+
 }
