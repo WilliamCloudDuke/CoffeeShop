@@ -19,4 +19,6 @@ public interface ProductRepository extends JpaRepository<Product, Serializable> 
 	public List<Product> findByPriceBetween(Double minPrice, Double maxPrice);
 
 	public void deleteById(int id);
+
+	public List<Product> findAll();
 }

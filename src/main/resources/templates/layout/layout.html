@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <title>CoffeShop of Freedom</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" th:href="@{/css/main.css}" href="../../css/main.css"/>
+    <th:block layout:fragment="css_placeholder">
+        <link rel="stylesheet" th:href="@{/css/home.css}" href="../../css/home.css"/>
+    </th:block>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/4.0.0-1/css/bootstrap.min.css"/>
+</head>
+<body>
+
+<!-- MENU -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" layout:fragment="navbar">
+    <div class="container">
+        <a class="navbar-brand" th:href="@{/}">CoffeShop Online</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" th:href="@{/}">Home
+                    </a>
+                </li>
+                <li class="nav-item" sec:authorize="hasRole('ROLE_ADMIN')">
+                    <a class="nav-link" th:href="@{/products}">Products</a>
+                </li>
+                <li class="nav-item" sec:authorize="hasRole('ROLE_ADMIN')">
+                    <a class="nav-link" th:href="@{/orders}">Orders</a>
+                </li>
+                <li class="nav-item" sec:authorize="hasRole('ROLE_ADMIN')">
+                    <a class="nav-link" th:href="@{/persons}">Persons</a>
+                </li>
+                <li class="nav-item" sec:authorize="!isAuthenticated()">
+                    <a class="nav-link" th:href="@{/login}">Login</a>
+                </li>
+                <li class="nav-item" sec:authorize="isAuthenticated()">
+                    <a class="nav-link" th:href="@{/my-account}">My Account</a>
+                </li>
+                <li class="nav-item" sec:authorize="isAuthenticated()">
+                    <a class="nav-link" th:href="@{/logout}">Logout</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- CONTENT -->
+<div class="container">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb" layout:fragment="breadcrumb">
+        </ol>
+    </nav>
+    <header class="jumbotron my-4 banner-container" layout:fragment="page_header">
+        <h3 class="display-5">Coffeeshop Online</h3>
+        <div class="lead banner"></div>
+    </header>
+    <th:block layout:fragment="page_content">
+    </th:block>
+</div>
+<!-- END CONTENT -->
+
+<script type="text/javascript" src="/webjars/jquery/3.3.1/jquery.js"></script>
+<script type="text/javascript" src="/webjars/bootstrap/4.0.0-1/js/bootstrap.js"></script>
+<th:block layout:fragment="scripts">
+</th:block>
+</body>
+</html>

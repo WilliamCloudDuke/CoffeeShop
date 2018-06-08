@@ -52,4 +52,8 @@ public class ProductService {
 		productRepository.deleteById(id);
 	}
 
+	public List<Product> findAll() {
+		return productRepository.findAll();
+	}
+
 }

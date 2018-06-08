@@ -1,0 +1,24 @@
+.card {
+    height: 100%;
+}
+
+.banner {
+    height: 500px;
+    background-image: url("../images/banner.jpg");
+}
+
+.banner-container {
+    background-color: #620000;
+}
+
+.jumbotron {
+    padding: 1px !important;
+}
+
+.display-5 {
+    margin-left: 30px;
+}
+
+.product-price {
+    font-weight: bold;
+}
