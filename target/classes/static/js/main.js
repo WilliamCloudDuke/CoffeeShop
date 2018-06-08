@@ -1,5 +1,6 @@
 $(function() {
-    $(".add-to-cart-btn").click(function(e) {
+    $(".add-to-car").click(function(e) {
+    	console.log("clicked3")
         e.preventDefault();
         var self = $(this);
         $.ajax({
@@ -8,7 +9,7 @@ $(function() {
             data: self.attr("productId"),
             contentType: "application/json; charset=utf-8",
             success: function() {
-                //do nothing
+            	console.log("response success")
             }
         });
     });

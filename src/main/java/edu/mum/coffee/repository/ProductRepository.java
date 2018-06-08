@@ -21,4 +21,6 @@ public interface ProductRepository extends JpaRepository<Product, Serializable> 
 	public void deleteById(int id);
 
 	public List<Product> findAll();
+
+	public Product findById(int id);
 }

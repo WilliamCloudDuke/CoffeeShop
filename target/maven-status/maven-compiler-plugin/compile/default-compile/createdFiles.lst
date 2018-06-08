@@ -19,6 +19,7 @@ edu\mum\coffee\controller\OrderController.class
 edu\mum\coffee\domain\Orderline.class
 edu\mum\coffee\repository\ProductRepository.class
 edu\mum\coffee\domain\ShoppingCar.class
+edu\mum\coffee\rest\ShoppingCartRestService.class
 edu\mum\coffee\controller\ErrorController.class
 edu\mum\coffee\domain\Product.class
 edu\mum\coffee\service\PersonService.class

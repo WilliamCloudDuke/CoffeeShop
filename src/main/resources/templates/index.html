@@ -1,36 +1,35 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="layout/layout">
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="layout/layout">
 <head>
 </head>
-<body>
-
-<ol layout:fragment="breadcrumb" class="d-none">
-</ol>
-
-<th:block layout:fragment="page_content">
-    <div class="row text-center">
-        <div class="col-lg-3 col-md-6 mb-4" th:each="product, iter : ${products}">
-            <div class="card">
-             <!-- BREACKING DOWN THE PAGE TO SHOW PRODUCTS -->
-                <div class="card-body">
-                    <h4 class="card-title" th:text="${product.productName}"></h4>
-                    <p class="product-price" th:text="${product.price}"></p>
-                    <p class="card-text" th:text="${product.description}"></p>
-                </div>
-                <div class="card-footer">
-                    <button th:attr="productId=${product.id}">Add Coffee to cart</button>
-                </div>
-                
-            </div>
-        </div>
-    </div>
-</th:block>
-</body>
-
 <th:block layout:fragment="scripts">
-    <script th:src="@{/js/main.js}" src="../../js/main.js" type="text/javascript"></script>
+	<script th:src="@{/js/main.js}" src="../../js/main.js"
+		type="text/javascript"></script>
 </th:block>
 
+<body>
+	<ol layout:fragment="breadcrumb" class="d-none">
+	</ol>
+
+	<th:block layout:fragment="page_content">
+		<div class="row text-center">
+			<div class="col-lg-3 col-md-6 mb-4"
+				th:each="product, iter : ${products}">
+				<div class="card">
+					<!-- BREACKING DOWN THE PAGE TO SHOW PRODUCTS -->
+					<div class="card-body">
+						<h4 class="card-title" th:text="${product.productName}"></h4>
+						<p class="product-price" th:text="${product.price}"></p>
+						<p class="card-text" th:text="${product.description}"></p>
+					</div>
+					<div class="card-footer">
+						<button th:attr="productId=${product.id}" class="add-to-car">Add Coffee to cart</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</th:block>
+</body>
 </html>

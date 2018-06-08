@@ -43,6 +43,14 @@ public class User implements Serializable {
 		return id;
 	}
 
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+
 	public void setId(long id) {
 		this.id = id;
 	}
