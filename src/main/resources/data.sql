@@ -14,4 +14,7 @@ INSERT INTO ROLE(ID, ROLE) VALUES(-1, 'ROLE_ADMIN');
 
 INSERT INTO ROLE(ID, ROLE) VALUES(-2, 'ROLE_CUSTOMER');
 
+INSERT INTO PRODUCT(ID, NAME, DESCRIPTION, PRICE, PRODUCT_TYPE) VALUES (-1, 'EXPRESSO', 'Another drink warped by misconceptions! Cappuccino, named for its similarity in color to the robes of Capuchin monks, is simply a shot of espresso with steamed, wet milk, not necessarily slathered with a frothy, dry foam.', '10.00', 'BREAKFAST');
+
+
 

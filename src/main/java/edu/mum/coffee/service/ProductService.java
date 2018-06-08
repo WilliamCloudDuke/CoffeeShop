@@ -47,12 +47,12 @@ public class ProductService {
 	public List<Product> findByProductType(ProductType productType) {
 		return productRepository.findByProductType(productType);
 	}
-
+	
 	public void deleteById(int id) {
 		productRepository.deleteById(id);
 	}
-
-	public List<Product> findAll() {
+	
+	public List<Product> findAll(){
 		return productRepository.findAll();
 	}
 
