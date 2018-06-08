@@ -14,16 +14,13 @@
         <div class="col-lg-3 col-md-6 mb-4" th:each="product, iter : ${products}">
             <div class="card">
              <!-- BREACKING DOWN THE PAGE TO SHOW PRODUCTS -->
-                
                 <div class="card-body">
                     <h4 class="card-title" th:text="${product.productName}"></h4>
+                    <p class="product-price" th:text="${product.price}"></p>
                     <p class="card-text" th:text="${product.description}"></p>
-                    <p class="product-price" th:text="${product.price} + ' $'"></p>
                 </div>
-                <img class="card-img-top" th:src="@{${'/images/coffee' + (iter.index % 4) + '.jpg'}}" alt=""/>
-                
                 <div class="card-footer">
-                    <button th:attr="productId=${product.id}" class="add-to-cart-btn btn btn-primary">Add Coffee to cart</button>
+                    <button th:attr="productId=${product.id}">Add Coffee to cart</button>
                 </div>
                 
             </div>
