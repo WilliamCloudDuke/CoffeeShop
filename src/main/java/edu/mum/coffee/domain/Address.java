@@ -1,18 +1,28 @@
 package edu.mum.coffee.domain;
 
+import java.io.Serializable;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-public class Address {
+@Table(name = "ADDRESS")
+public class Address implements Serializable {
 
 	@Id
 	@GeneratedValue
+	@Column(name = "ID")
 	private int id;
+	@Column(name = "CITY")
 	private String city;
+	@Column(name = "STATE")
 	private String state;
+	@Column(name = "COUNTRY")
 	private String country;
+	@Column(name = "ZIP_CODE")
 	private String zipcode;
 
 	public String getCity() {

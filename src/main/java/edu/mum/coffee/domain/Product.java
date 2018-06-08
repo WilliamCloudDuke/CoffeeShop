@@ -1,25 +1,39 @@
 package edu.mum.coffee.domain;
 
+import java.io.Serializable;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-public class Product {
+@Table(name = "PRODUCT")
+public class Product implements Serializable {
 
 	@Id
 	@GeneratedValue
+	@Column(name = "ID")
 	private int id;
+
+	@Column(name = "NAME")
 	private String productName;
+
+	@Column(name = "DESCRIPTION")
 	private String description;
+
+	@Column(name = "PRICE")
 	private double price;
+
 	@Enumerated(EnumType.STRING)
+	@Column(name = "PRODUCT_TYPE")
 	private ProductType productType;
 
 	public Product() {
-		super(); // default constructor
+		super();
 	}
 
 	public Product(String productName, String description, double price, ProductType productType) {

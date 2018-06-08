@@ -1,15 +1,18 @@
 package edu.mum.coffee.domain;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -17,18 +20,23 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "OrderTable")
-public class Order {
+@Table(name = "ORDER_TABLE")
+public class Order implements Serializable {
 
 	@Id
 	@GeneratedValue
+	@Column(name = "ID")
 	private int id;
+
+	@Column(name = "ORDER_DATE")
 	@Temporal(TemporalType.DATE)
 	private Date orderDate;
 
 	@OneToMany(mappedBy = "order", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<Orderline> orderLines = new ArrayList<Orderline>();
+
 	@OneToOne
+	@JoinColumn(name = "PERSON_ID")
 	private Person person;
 
 	public int getId() {
