@@ -21,6 +21,7 @@ public class ProductController {
 
 	@GetMapping("/products")
 	public String productList(Model model) {
+		System.out.println("getting all products");
 		model.addAttribute("products", pService.getAllProduct());
 		return "productList";
 	}
