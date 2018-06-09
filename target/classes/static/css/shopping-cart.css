@@ -45,6 +45,7 @@ body {
         min-width: 320px;
     }
 
+
     table#cart tbody tr td:first-child {
         background: #333;
         color: #fff;

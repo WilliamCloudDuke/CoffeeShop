@@ -13,6 +13,7 @@ edu\mum\coffee\controller\ErrorController.class
 edu\mum\coffee\domain\Product.class
 edu\mum\coffee\service\PersonService.class
 edu\mum\coffee\domain\Access.class
+edu\mum\coffee\repository\RoleRepository.class
 edu\mum\coffee\CoffeShopApplication.class
 edu\mum\coffee\config\WebSecurityConfig.class
 edu\mum\coffee\service\UserService.class

@@ -24,6 +24,7 @@ D:\William\MUM\WAA\midterm\Project\coffeeShop\src\main\java\edu\mum\coffee\servi
 D:\William\MUM\WAA\midterm\Project\coffeeShop\src\main\java\edu\mum\coffee\controller\OrderController.java
 D:\William\MUM\WAA\midterm\Project\coffeeShop\src\main\java\edu\mum\coffee\rest\ShoppingCartRestService.java
 D:\William\MUM\WAA\midterm\Project\coffeeShop\src\main\java\edu\mum\coffee\repository\PersonRepository.java
+D:\William\MUM\WAA\midterm\Project\coffeeShop\src\main\java\edu\mum\coffee\repository\RoleRepository.java
 D:\William\MUM\WAA\midterm\Project\coffeeShop\src\main\java\edu\mum\coffee\domain\ProductType.java
 D:\William\MUM\WAA\midterm\Project\coffeeShop\src\main\java\edu\mum\coffee\service\PersonService.java
 D:\William\MUM\WAA\midterm\Project\coffeeShop\src\main\java\edu\mum\coffee\domain\UserRole.java

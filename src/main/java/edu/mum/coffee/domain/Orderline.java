@@ -10,6 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "ORDER_LINE")
@@ -30,6 +31,9 @@ public class Orderline implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "ORDER_ID")
 	private Order order;
+
+	@Transient
+	private double subTotal;
 
 	public int getQuantity() {
 		return quantity;
@@ -57,6 +61,14 @@ public class Orderline implements Serializable {
 
 	public double getSubtotal() {
 		return quantity * product.getPrice();
+	}
+
+	public void setSubTotal(double subTotal) {
+		this.subTotal = subTotal;
+	}
+
+	public double getSubTotal() {
+		return product.getPrice() * quantity;
 	}
 
 	public double getPrice() {

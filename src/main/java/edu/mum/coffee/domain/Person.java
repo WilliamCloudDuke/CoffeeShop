@@ -12,6 +12,7 @@ import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -40,6 +41,9 @@ public class Person implements Serializable {
 
 	@Column(name = "ENABLED")
 	private boolean enable;
+
+	@Transient
+	private String password;
 
 	public long getId() {
 		return id;
@@ -83,6 +87,14 @@ public class Person implements Serializable {
 
 	public void setAddress(Address address) {
 		this.address = address;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public String getPhone() {

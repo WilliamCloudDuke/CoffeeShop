@@ -1,5 +1,5 @@
 $(function() {
-    $(".add-to-car").click(function(e) {
+    $(".add-to-cart-btn").click(function(e) {
     	console.log("clicked3")
         e.preventDefault();
         var self = $(this);

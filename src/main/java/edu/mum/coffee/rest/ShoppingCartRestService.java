@@ -73,6 +73,7 @@ public class ShoppingCartRestService {
 	@PostMapping("/cart")
 	@ResponseStatus(HttpStatus.OK)
 	public void addICoffeeToShoppingCart(@RequestBody int productId, HttpSession session) {
+		System.out.println("POST - addICoffeeToShoppingCart");
 		Object orderO = session.getAttribute("orderCart");
 		if (null == orderO) {
 			orderO = new Order();

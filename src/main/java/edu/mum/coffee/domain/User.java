@@ -32,7 +32,7 @@ public class User implements Serializable {
 
 	@Column(name = "ENABLED")
 	private boolean enabled;
-	
+
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(name = "user_role", joinColumns = {
 			@JoinColumn(name = "user_id", referencedColumnName = "id") }, inverseJoinColumns = {
@@ -71,6 +71,10 @@ public class User implements Serializable {
 		this.password = password;
 	}
 
+	public void addRole(Role role) {
+		roles.add(role);
+	}
+
 	public List<Role> getRoles() {
 		return roles;
 	}
@@ -79,6 +83,4 @@ public class User implements Serializable {
 		this.roles = roles;
 	}
 
-	
-	
 }
