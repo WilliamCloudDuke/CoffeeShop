@@ -15,23 +15,23 @@ import edu.mum.coffee.service.PersonService;
 public class PersonController {
 
 	@Autowired
-	private PersonService pService;
+	private PersonService personService;
 
 	@GetMapping("/persons")
 	public String personList(Model model) {
-		model.addAttribute("persons", pService.findAll());
+		model.addAttribute("persons", personService.findAll());
 		return "personList";
 	}
 
 	@PostMapping("/person")
 	public String createPerson(@ModelAttribute Person person) {
-		pService.savePerson(person);
+		personService.savePerson(person);
 		return "redirect:/persons";
 	}
 
 	@GetMapping("/persons/{id}")
 	public String personById(@PathVariable("personId") Long id) {
-		pService.findById(id);
+		personService.findById(id);
 		return "personDetail";
 	}
 

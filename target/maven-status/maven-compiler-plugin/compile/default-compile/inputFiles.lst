@@ -3,9 +3,12 @@ D:\William\MUM\WAA\midterm\Project\coffeeShop\src\main\java\edu\mum\coffee\confi
 D:\William\MUM\WAA\midterm\Project\coffeeShop\src\main\java\edu\mum\coffee\domain\Order.java
 D:\William\MUM\WAA\midterm\Project\coffeeShop\src\main\java\edu\mum\coffee\controller\ProductController.java
 D:\William\MUM\WAA\midterm\Project\coffeeShop\src\main\java\edu\mum\coffee\domain\Orderline.java
+D:\William\MUM\WAA\midterm\Project\coffeeShop\src\main\java\edu\mum\coffee\config\UserConfigAdapter.java
 D:\William\MUM\WAA\midterm\Project\coffeeShop\src\main\java\edu\mum\coffee\controller\HomeController.java
 D:\William\MUM\WAA\midterm\Project\coffeeShop\src\main\java\edu\mum\coffee\domain\Address.java
 D:\William\MUM\WAA\midterm\Project\coffeeShop\src\main\java\edu\mum\coffee\domain\Role.java
+D:\William\MUM\WAA\midterm\Project\coffeeShop\src\main\java\edu\mum\coffee\service\UserService.java
+D:\William\MUM\WAA\midterm\Project\coffeeShop\src\main\java\edu\mum\coffee\repository\UserRepository.java
 D:\William\MUM\WAA\midterm\Project\coffeeShop\src\main\java\edu\mum\coffee\domain\User.java
 D:\William\MUM\WAA\midterm\Project\coffeeShop\src\main\java\edu\mum\coffee\repository\OrderRepository.java
 D:\William\MUM\WAA\midterm\Project\coffeeShop\src\main\java\edu\mum\coffee\domain\Product.java

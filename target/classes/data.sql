@@ -30,5 +30,15 @@ INSERT INTO PRODUCT(ID, NAME, DESCRIPTION, PRICE, PRODUCT_TYPE) VALUES (-7, 'CAF
 
 INSERT INTO PRODUCT(ID, NAME, DESCRIPTION, PRICE, PRODUCT_TYPE) VALUES (-8, 'CAPUCCINO', 'A cappuccino is similar to a latte. However the key difference between a latte and cappuccino is that a cappuccino has more foam and chocolate placed on top of the drink', '24.00', 'DINNER');
 
+-- USERS 
+--PASSWORD password
+
+INSERT INTO USER(ID, EMAIL, PASSWORD, ENABLED) VALUES(-1, 'admin@mum.edu', '$2a$10$R1kmVEHTHJ90GcejrpmTdOirALp9ZJ7ugMkPSDRKlOhTc1j92WClW', 1);
+INSERT INTO USER_ROLE(ID, USER_ID, ROLE_ID) VALUES(-1, -1, -1);
+--PASSWORD password
+INSERT INTO USER(ID, EMAIL, PASSWORD, ENABLED) VALUES(-2, 'customer@mum.edu', '$2a$10$R1kmVEHTHJ90GcejrpmTdOirALp9ZJ7ugMkPSDRKlOhTc1j92WClW', 1);
+INSERT INTO USER_ROLE(ID, USER_ID, ROLE_ID) VALUES(-2, -2, -2);
+
+
 
 
