@@ -56,6 +56,7 @@ public class PersonService {
 		user.setEnabled(person.isEnabled());
 		user.addRole(getRole());// CUSTOMER ROLE
 		user.setPassword(passwordEncoder.encode(person.getPassword()));
+		System.out.println("user.getPassword: " + user.getPassword());
 		// PERSON RECORD
 		person = personRepository.save(person);
 		// USER RECORD
