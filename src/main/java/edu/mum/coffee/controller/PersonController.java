@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.mum.coffee.config.UserConfigAdapter;
 import edu.mum.coffee.domain.Order;
@@ -38,8 +39,7 @@ public class PersonController {
 		model.addAttribute("person", new Person());
 		return "personDetail";
 	}
-	
-	
+
 	@PostMapping("/person")
 	public String createPerson(@ModelAttribute("person") Person person) {
 		personService.savePerson(person);
@@ -57,7 +57,6 @@ public class PersonController {
 		model.addAttribute(personService.findById(id));
 		return "personDetail";
 	}
-
 
 	@GetMapping("/my-account")
 	public String myProfile(Model model, Authentication authentication) {
@@ -77,8 +76,10 @@ public class PersonController {
 	}
 
 	@PostMapping("/my-account")
-	public String updateAccount(@ModelAttribute("person") Person person) {
+	public String updateAccount(@ModelAttribute("person") Person person, final RedirectAttributes redirectAttributes) {
+		System.out.println("POST -  updateAccount");
 		personService.savePerson(person);
+		redirectAttributes.addFlashAttribute("message", "Successfully updated");
 		return "redirect:/my-account";
 	}
 

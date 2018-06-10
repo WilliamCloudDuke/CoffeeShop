@@ -12,12 +12,11 @@
 	<header layout:fragment="page_header" class="d-none"></header>
 	<ol layout:fragment="breadcrumb">
 		<li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
-		<li class="breadcrumb-item active" aria-current="page">Product List</li>
+		<li class="breadcrumb-item active" aria-current="page">Product
+			List</li>
 	</ol>
 
 	<th:block layout:fragment="page_content">
-		<a class="btn btn-secondary create-product-btn" th:href="@{/product}"
-			role="button">Create Product</a>
 		<table class="table table-bordered table-striped">
 			<thead class="thead-dark">
 				<tr>
@@ -37,6 +36,8 @@
 				</tr>
 			</tbody>
 		</table>
+		<a class="btn btn-warning create-product-btn" th:href="@{/product}"
+			role="button">Create Product</a>
 	</th:block>
 </body>
 </html>
