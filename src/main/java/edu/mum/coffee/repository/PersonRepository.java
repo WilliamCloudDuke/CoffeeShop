@@ -13,6 +13,8 @@ public interface PersonRepository extends JpaRepository<Person, Long> {
 	List<Person> findByEmail(String email);
 
 	public List<Person> findAll();
-	//
-	// public List<Person> findByFirstName();
+
+//	public List<Person> findByFirstName();
+//
+//	public List<Person> findByEnabled();
 }

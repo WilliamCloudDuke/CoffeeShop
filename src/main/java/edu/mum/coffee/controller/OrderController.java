@@ -51,6 +51,7 @@ public class OrderController {
 
 	@PostMapping("/createOrder")
 	public String createOrder(HttpSession session, Authentication auth) {
+		System.out.println("POST - CreateOrder");
 		Object oObj = session.getAttribute("orderCart");
 		if (null == oObj) {
 			oObj = new Order();

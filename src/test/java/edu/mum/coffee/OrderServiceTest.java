@@ -172,7 +172,7 @@ public class OrderServiceTest {
 		for (int i = 0; i < TEST_NumberOfPersons; i++) {
 			Person person = new Person();
 			person.setEmail(i + "test@email.com");
-			person.setEnable((i % 2 == 0));
+			person.setEnabled((i % 2 == 0));
 			person.setFirstName("firstName Test" + i);
 			person.setLastName("lastName Test" + i);
 			person.setPhone("111888777" + i);

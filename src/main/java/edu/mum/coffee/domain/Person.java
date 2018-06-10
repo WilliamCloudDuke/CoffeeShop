@@ -40,7 +40,7 @@ public class Person implements Serializable {
 	private String phone;
 
 	@Column(name = "ENABLED")
-	private boolean enable;
+	private boolean enabled;
 
 	@Transient
 	private String password;
@@ -49,13 +49,6 @@ public class Person implements Serializable {
 		return id;
 	}
 
-	public boolean isEnable() {
-		return enable;
-	}
-
-	public void setEnable(boolean enable) {
-		this.enable = enable;
-	}
 
 	public String getFirstName() {
 		return firstName;
@@ -64,6 +57,16 @@ public class Person implements Serializable {
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
+
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+
 
 	public String getLastName() {
 		return lastName;

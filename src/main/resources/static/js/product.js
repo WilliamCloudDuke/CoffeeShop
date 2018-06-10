@@ -6,6 +6,7 @@ $(function() {
             type: "DELETE",
             success: function(result) {
                 window.location.href = "/products";
+                console.log("response success")
             }
         });
     });

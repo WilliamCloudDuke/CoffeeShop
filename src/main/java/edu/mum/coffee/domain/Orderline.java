@@ -72,6 +72,7 @@ public class Orderline implements Serializable {
 		return product.getPrice() * quantity;
 	}
 
+	
 	public double getPrice() {
 		return product.getPrice();
 	}

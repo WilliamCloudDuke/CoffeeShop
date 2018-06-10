@@ -50,10 +50,10 @@ public class PersonService {
 	}
 
 	public void singup(Person person) {
-		person.setEnable(true);
+		person.setEnabled(true);
 		User user = new User();
 		user.setEmail(person.getEmail());
-		user.setEnabled(person.isEnable());
+		user.setEnabled(person.isEnabled());
 		user.addRole(getRole());// CUSTOMER ROLE
 		user.setPassword(passwordEncoder.encode(person.getPassword()));
 		// PERSON RECORD
@@ -70,7 +70,7 @@ public class PersonService {
 		if (null != person) {
 			User user = userRepository.findByEmail(person.getEmail());
 			if (null != user) {
-				user.setEnabled(person.isEnable());
+				user.setEnabled(person.isEnabled());
 				userRepository.save(user);
 			} else {
 				System.out.println("USER is NULL");
@@ -79,7 +79,6 @@ public class PersonService {
 		} else {
 			return new Person();
 		}
-
 	}
 
 	// public List<Person> findByFirstName() {

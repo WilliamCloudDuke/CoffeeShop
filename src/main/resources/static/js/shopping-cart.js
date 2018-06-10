@@ -8,7 +8,6 @@ $(function() {
 			quantity : quantity,
 			productId : productId
 		};
-
 		$.ajax({
 			type : "POST",
 			data : JSON.stringify(obj),
@@ -22,10 +21,8 @@ $(function() {
 
 	$(".btn-remove-shopping-cart").click(function(e) {
 		e.preventDefault();
-
 		var self = $(this);
 		var productId = self.attr("productId");
-
 		$.ajax({
 			type : "DELETE",
 			url : "/shopping-cart/" + productId,
@@ -38,7 +35,6 @@ $(function() {
 
 	$("#placeOrder-btn").click(function(e) {
 		e.preventDefault();
-
 		$.ajax({
 			type : "POST",
 			url : "/placeOrder",

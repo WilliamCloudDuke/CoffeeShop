@@ -28,6 +28,14 @@ public class Order implements Serializable {
 	@Column(name = "ID")
 	private int id;
 
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public void setOrderLines(List<Orderline> orderLines) {
+		this.orderLines = orderLines;
+	}
+
 	@Column(name = "ORDER_DATE")
 	@Temporal(TemporalType.DATE)
 	private Date orderDate;
@@ -73,7 +81,6 @@ public class Order implements Serializable {
 
 	public double getTotalAmount() {
 		double totalAmount = 0;
-
 		for (Orderline ol : this.orderLines) {
 			totalAmount += ol.getSubtotal();
 		}

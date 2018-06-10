@@ -67,7 +67,7 @@
 							<p th:text="${total}">$1.99</p>
 					</strong></td>
 					<td>
-						<form th:action="@{/placeOrder}" method="POST">
+						<form th:action="@{/createOrder}" method="POST">
 							<button
 								th:if="${order != null && not #lists.isEmpty(order.orderLines)}"
 								class="btn btn-success btn-primary">
