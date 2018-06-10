@@ -23,7 +23,6 @@
 		<div class="card">
 			<div class="card-header user-info-header">Your information</div>
 			<div class="card-block user-info">
-				<h1>${message}</h1>
 				<form th:object="${person}" th:action="@{/my-account}" method="post"
 					class="form-custom">
 					<input type="hidden" name="id" th:field="*{id}" />
