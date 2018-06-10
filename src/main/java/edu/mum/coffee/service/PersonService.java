@@ -29,10 +29,6 @@ public class PersonService {
 
 	private BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
-	public Person savePerson(Person person) {
-		return personRepository.save(person);
-	}
-
 	public List<Person> findByEmail(String email) {
 		return personRepository.findByEmail(email);
 	}
@@ -45,23 +41,45 @@ public class PersonService {
 		personRepository.delete(person);
 	}
 
-	public void singup(Person person) {
-		person.setEnable(true);
-		User user = new User();
-		user.setEmail(person.getEmail());
-		user.setEnabled(person.isEnable());
-		user.addRole(getRole());
-		user.setPassword(passwordEncoder.encode(person.getPassword()));
-		person = personRepository.save(person);
-		userRepository.save(user);
-	}
-
 	public List<Person> findAll() {
 		return personRepository.findAll();
 	}
 
 	private Role getRole() {
 		return roleRepository.findByRole("ROLE_CUSTOMER");
+	}
+
+	public void singup(Person person) {
+		person.setEnable(true);
+		User user = new User();
+		user.setEmail(person.getEmail());
+		user.setEnabled(person.isEnable());
+		user.addRole(getRole());// CUSTOMER ROLE
+		user.setPassword(passwordEncoder.encode(person.getPassword()));
+		// PERSON RECORD
+		person = personRepository.save(person);
+		// USER RECORD
+		userRepository.save(user);
+	}
+
+	public Person savePerson(Person person, User user) {
+		return personRepository.save(person);
+	}
+
+	public Person savePerson(Person person) {
+		if (null != person) {
+			User user = userRepository.findByEmail(person.getEmail());
+			if (null != user) {
+				user.setEnabled(person.isEnable());
+				userRepository.save(user);
+			} else {
+				System.out.println("USER is NULL");
+			}
+			return personRepository.save(person);
+		} else {
+			return new Person();
+		}
+
 	}
 
 	// public List<Person> findByFirstName() {

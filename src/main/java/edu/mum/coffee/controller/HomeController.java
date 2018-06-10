@@ -31,30 +31,32 @@ public class HomeController {
 		return "login";
 	}
 
-	@GetMapping({ "/" })
-	public String homePage(Model model) {
-		System.out.println("going home");
-		model.addAttribute("products", productService.findAll());
-		return "index";
-	}
-	
 	@RequestMapping("/login-error")
 	public String loginError(Model model) {
 		model.addAttribute("loginError", true);
 		return "login";
 	}
 
+	@GetMapping({ "/" })
+	public String homePage(Model model) {
+		System.out.println("going home");
+		model.addAttribute("products", productService.findAll());
+		return "index";
+	}
+
 	@GetMapping("shopping-cart")
 	public String shoppingCart(Model model, HttpSession session) {
+		// Session object orderCart to handle shopping-cart
 		Object orderO = session.getAttribute("orderCart");
 		double total = 0;
 		if (null != orderO) {
 			Order order = (Order) orderO;
 			model.addAttribute("order", order);
 			for (Orderline ol : order.getOrderLines()) {
-				total += ol.getSubtotal();
+				total += ol.getSubTotal();
 			}
 		}
+		System.out.println("HomeController - total: " + total);
 		model.addAttribute("total", total);
 		return "shoppingCart";
 	}

@@ -68,6 +68,7 @@ public class Orderline implements Serializable {
 	}
 
 	public double getSubTotal() {
+		//product.getPrice()  0.0
 		return product.getPrice() * quantity;
 	}
 

@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
+import javax.websocket.server.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -25,26 +26,26 @@ import edu.mum.coffee.service.PersonService;
 public class OrderController {
 
 	@Autowired
-	private OrderService oService;
+	private OrderService orderService;
 
 	@Autowired
-	private PersonService pService;
+	private PersonService personService;
 
 	@GetMapping("/orders")
 	public String orderList(Model model) {
-		model.addAttribute("orders", oService.findAll());
+		model.addAttribute("orders", orderService.findAll());
 		return "orderList";
 	}
 
 	@PostMapping("/order")
 	public String createOrder(@ModelAttribute Order order) {
-		oService.save(order);
+		orderService.save(order);
 		return "redirec:/orders";
 	}
 
 	@PutMapping("/order/{id}")
 	public String updateOrder(@PathVariable("orderId") int id, @ModelAttribute Order order) {
-		oService.save(order);
+		orderService.save(order);
 		return "redirect:/orders";
 	}
 
@@ -58,11 +59,24 @@ public class OrderController {
 		Order order = (Order) oObj;
 		order.setOrderDate(new Date());
 		UserConfigAdapter userAdapter = (UserConfigAdapter) auth.getPrincipal();
-		List<Person> persons = pService.findByEmail(userAdapter.getUser().getEmail());
-		order.setPerson(persons.get(0));
-		oService.save(order);
+		List<Person> persons = personService.findByEmail(userAdapter.getUser().getEmail());
+		Person person = persons.get(0);
+		order.setPerson(person);
+		orderService.save(order);
 		session.removeAttribute("orderCart");
 		return "redirect:/";
+	}
+
+	@GetMapping("/order/{orderId}")
+	public String orderDetail(@PathParam("orderId") int id, Model model) {
+		model.addAttribute("order", orderService.findById(id));
+		return "order";
+	}
+
+	@GetMapping("/order")
+	public String setOrder(Model model) {
+		model.addAttribute("order", new Order());
+		return "order";
 	}
 
 }

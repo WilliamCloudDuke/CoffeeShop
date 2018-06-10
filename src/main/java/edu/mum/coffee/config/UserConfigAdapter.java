@@ -28,10 +28,8 @@ public class UserConfigAdapter implements UserDetails, Serializable {
 	}
 
 	@Override
-	public Collection<? extends GrantedAuthority> getAuthorities() {
-		Set<GrantedAuthority> authorities = new HashSet<>();
-		user.getRoles().stream().forEach(authorities::add);
-		return authorities;
+	public boolean isEnabled() {
+		return user.isEnabled();
 	}
 
 	@Override
@@ -47,11 +45,6 @@ public class UserConfigAdapter implements UserDetails, Serializable {
 	@Override
 	public boolean isCredentialsNonExpired() {
 		return true;
-	}
-
-	@Override
-	public boolean isEnabled() {
-		return user.isEnabled();
 	}
 
 	@Override
@@ -72,4 +65,13 @@ public class UserConfigAdapter implements UserDetails, Serializable {
 	public Person getPerson() {
 		return person;
 	}
+	
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		Set<GrantedAuthority> authorities = new HashSet<>();
+		user.getRoles().stream().forEach(authorities::add);
+		return authorities;
+	}
+
+	
 }
