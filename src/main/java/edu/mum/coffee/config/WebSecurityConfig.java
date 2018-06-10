@@ -27,11 +27,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.formLogin().loginPage("/login").permitAll().and().logout().permitAll();
+		
 		http.authorizeRequests().antMatchers("/signup", "/login", "/webjars/**", "/css/**", "/images/**").permitAll();
 		http.csrf().disable();
+		
 		http.headers().frameOptions().disable();
+		
 		http.authorizeRequests().antMatchers("/products/**", "/product/**", "/person/**", "/persons/**", "/orders/**")
 				.hasRole("ADMIN").and().httpBasic().realmName(REALM).authenticationEntryPoint(getBasicAuthEntryPoint());
+		
 		http.authorizeRequests().antMatchers("/placeOrder", "/my-account").authenticated();
 	}
 

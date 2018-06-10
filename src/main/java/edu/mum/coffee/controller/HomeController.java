@@ -25,19 +25,19 @@ public class HomeController {
 	@Autowired
 	private PersonService personService;
 
+	@GetMapping({ "/login" })
+	public String loginPage() {
+		System.out.println("going to login");
+		return "login";
+	}
+
 	@GetMapping({ "/" })
 	public String homePage(Model model) {
 		System.out.println("going home");
 		model.addAttribute("products", productService.findAll());
 		return "index";
 	}
-
-	@GetMapping({ "/login" })
-	public String securePage() {
-		System.out.println("going to login");
-		return "login";
-	}
-
+	
 	@RequestMapping("/login-error")
 	public String loginError(Model model) {
 		model.addAttribute("loginError", true);
